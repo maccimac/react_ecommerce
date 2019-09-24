@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
 
 //IMPORT ROUTES
+const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/user')
 
 //APP
@@ -34,6 +35,7 @@ app.use(expressValidator());
 // app.get('/', (req, res) =>{
 //   res.send('Hello from Node JS');
 // })
+app.use("/api", authRoutes)
 app.use("/api", userRoutes)
 
 const port = process.env.PORT || 8000 // use 8000 if there is no env file
