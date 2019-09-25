@@ -12,9 +12,11 @@ const expressValidator = require('express-validator');
 //IMPORT ROUTES
 const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/user')
+const categoryRoutes = require('./routes/category')
+const productRoutes = require('./routes/product')
 
 //APP
-const app = express()
+const app = express();
 
 //// database
 mongoose
@@ -37,6 +39,8 @@ app.use(expressValidator());
 // })
 app.use("/api", authRoutes)
 app.use("/api", userRoutes)
+app.use("/api", categoryRoutes)
+app.use("/api", productRoutes)
 
 const port = process.env.PORT || 8000 // use 8000 if there is no env file
 
