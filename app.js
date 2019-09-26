@@ -7,6 +7,7 @@ require('dotenv').config();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors'); // cors allows app to run on multiple ports?
 const expressValidator = require('express-validator');
 
 //IMPORT ROUTES
@@ -30,7 +31,9 @@ mongoose
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(cors());
 app.use(expressValidator());
+
 
 
 //ROUTES MIDDLEWARE
