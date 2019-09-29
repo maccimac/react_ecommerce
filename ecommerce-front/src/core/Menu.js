@@ -31,18 +31,37 @@ const Menu = ({history}) => (
         </li>
         </React.Fragment>
       )}
+
+
       {isAuthenticated() && (
+        <React.Fragment>
         <li className="nav-item">
           <span className="nav-link" style={{cursor: 'pointer', color:'#fff'}} onClick={()=>{
               signout( ()=>{
               history.push("/");
             })
           }
-
         }>
             Signout
           </span>
         </li>
+        {isAuthenticated().user.role === 0 && (
+          <li className="nav-item">
+            <Link className="nav-link" style={isActive(history,'/user/dashboard')} to="/user/dashboard">
+              Dashboard
+            </Link>
+          </li>
+        )}
+        {isAuthenticated().user.role === 1 && (
+          <li className="nav-item">
+            <Link className="nav-link" style={isActive(history,'/admin/dashboard')} to="/admin/dashboard">
+              Admin Dashboard
+            </Link>
+          </li>
+        )}
+
+
+        </React.Fragment>
 
       )}
 
