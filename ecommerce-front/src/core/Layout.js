@@ -1,9 +1,9 @@
 import React from 'react';
 import Menu from './Menu';
-const Layout = ({title="Title", className, description, children}) => (
+const Layout = ({title="Title", className="container", description, children}) => (
   <div>
     <Menu/>
-    <div className="jumbotron">
+    <div className="container-fluid jumbotron">
       <h2>{title}</h2>
       <p className="lead">{description}</p>
     </div>

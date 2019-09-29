@@ -1,4 +1,4 @@
-//THIS IS OUR USER SCHEMA
+// //THIS IS OUR USER SCHEMA
 const mongoose = require('mongoose')
 
 
@@ -6,8 +6,9 @@ const categorySchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
-    require: true,
-    maxlength: 32
+    required: true,
+    maxlength: 32,
+    unique: true
   },
 }, {timestamps: true}
 );
