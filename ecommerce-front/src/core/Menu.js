@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import { Link, withRouter } from 'react-router-dom'; // — Link does not reload page
 import { signout, isAuthenticated } from '../auth';
+import { itemTotal } from './cartHelpers';
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -51,11 +52,14 @@ const Menu = ({history}) => (
           </span>
         </li>
         {isAuthenticated().user.role === 0 && (
-          <li className="nav-item">
-            <Link className="nav-link" style={isActive(history,'/user/dashboard')} to="/user/dashboard">
-              Dashboard
-            </Link>
-          </li>
+          <Fragment>
+            <li className="nav-item">
+              <Link className="nav-link" style={isActive(history,'/user/dashboard')} to="/user/dashboard">
+                Dashboard
+              </Link>
+            </li>
+          </Fragment>
+
         )}
         {isAuthenticated().user.role === 1 && (
           <li className="nav-item">
@@ -66,9 +70,19 @@ const Menu = ({history}) => (
         )}
 
 
+
+
         </React.Fragment>
 
       )}
+
+      <li className="nav-item">
+        <Link className="nav-link" style={isActive(history,'/cart')} to="/cart">
+          Cart <sup><small className="cart-badge">
+            {itemTotal() ? itemTotal() : null}
+          </small></sup>
+        </Link>
+      </li>
 
     </ul>
 
