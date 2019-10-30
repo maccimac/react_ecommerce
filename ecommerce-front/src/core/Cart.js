@@ -9,8 +9,8 @@ const Cart = () => {
   const [items, setItems] = useState([]);
 
   useEffect(()=>{
-    setItems(getCart())
-  }, [items]);
+    setItems(getCart());
+  }, []);
 
   const showItems = items => {
     // let num = var.length;
@@ -60,7 +60,7 @@ const Cart = () => {
 
 
     </Layout>
-  )
-}
+  );
+};
 
 export default Cart;

@@ -25,10 +25,10 @@ const Routes = () => {
         <Route path="/signin" exact component={Signin}/>
         <Route path="/signup" exact component={Signup}/>
         <PrivateRoute path="/user/dashboard" exact component={Dashboard}/>
-        <PrivateRoute path="/cart" exact component={Cart}/>
         <AdminRoute path="/admin/dashboard" exact component={AdminDashboard}/>
         <AdminRoute path="/create/category" exact component={AddCategory}/>
         <AdminRoute path="/create/product" exact component={AddProduct}/>
+        <Route path="/cart" exact component={Cart}/>
       </Switch>
 
     </BrowserRouter>
