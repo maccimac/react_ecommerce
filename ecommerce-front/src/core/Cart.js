@@ -7,10 +7,10 @@ import Checkout from './Checkout'
 
 const Cart = () => {
   const [items, setItems] = useState([]);
-  const [run, setRun] = useState(false)
+  const [run, setRun] = useState(false);
 
   useEffect(()=>{
-    setItems(getCart());
+    setItems(getCart())
   }, [run]);
 
   const showItems = items => {
@@ -26,7 +26,7 @@ const Cart = () => {
                     cartUpdate={true}
                     removeBtn={true}
                     setRun = {setRun}
-                    run={run}
+                    run = {run}
                   />
               ))}
           </div>
@@ -54,7 +54,11 @@ const Cart = () => {
           </div>
           <div className="col-4">
             <h3>Your Cart Summary</h3>
-            <Checkout products={items}/>
+            <Checkout
+            products={items}
+            setRun={setRun}
+            run={run}
+            />
           </div>
 
 
@@ -63,7 +67,7 @@ const Cart = () => {
 
 
     </Layout>
-  );
-};
+  )
+}
 
 export default Cart;
