@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Layout from '../core/Layout';
 import { isAuthenticated } from '../auth';
 import { Link, Redirect } from 'react-router-dom';
-import { read, update, updateUser } from './apiUser'
+import { read, update, updateUser, getPurchaseHistory } from './apiUser';
+
 
 const Profile = ({match}) =>{
+  
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -108,6 +110,8 @@ const Profile = ({match}) =>{
       return <Redirect to="/"/>
     }
   }
+
+
 
   useEffect(()=>{
     init(match.params.userId)
